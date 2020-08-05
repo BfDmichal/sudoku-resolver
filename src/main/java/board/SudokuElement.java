@@ -29,15 +29,30 @@ public class SudokuElement {
         return possibleValues;
     }
 
-    public void deleteFromPossibleValues(int value){
+    public void deleteFromPossibleValues(int value) {
         possibleValues.remove(value);
     }
-    public boolean elementHasNumber(){
+
+    public boolean elementHasNumber() {
         return getValue() != -1;
+    }
+
+//    private ArrayList<Integer> basicPossibleValues() {
+//        if (!elementHasNumber()) {
+//            for (int i = 1; i < 9; i++) {
+//                possibleValues.add(i);
+//            }
+//        }
+//        return possibleValues;
+//    }
+    public void setOnlyPossibleValue(){
+        if(possibleValues.size()==1){
+            value= possibleValues.get(0);
+        }
     }
 
     @Override
     public String toString() {
-        return value+"" ;
+        return value + "";
     }
 }

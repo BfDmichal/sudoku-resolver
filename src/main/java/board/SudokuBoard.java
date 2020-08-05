@@ -12,11 +12,20 @@ public class SudokuBoard {
     public ArrayList<SudokuPart> getBoard() {
         return board;
     }
-    public void addPartToBoard(SudokuPart sudokuPart){
+
+    public void addPartToBoard(SudokuPart sudokuPart) {
         board.add(sudokuPart);
     }
-    public SudokuPart getPartByName(int name){
-            return board.get(name);
+
+    public SudokuPart getPartByName(int name) {
+        return board.get(name);
+    }
+
+    public boolean checkIsSolved() {
+        boolean solve = board.stream()
+                .flatMap(sudokuPart -> sudokuPart.getLineOfElements().stream())
+                .anyMatch(sudokuElement -> sudokuElement.getValue() == -1);
+        return solve;
     }
 
     public void tString() {
