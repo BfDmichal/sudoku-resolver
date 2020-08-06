@@ -21,12 +21,7 @@ public class SudokuBoard {
         return board.get(name);
     }
 
-    public boolean checkIsSolved() {
-        boolean solve = board.stream()
-                .flatMap(sudokuPart -> sudokuPart.getLineOfElements().stream())
-                .anyMatch(sudokuElement -> sudokuElement.getValue() == -1);
-        return solve;
-    }
+
 
     public void tString() {
         for (int i = 0; i < 9; i++) {

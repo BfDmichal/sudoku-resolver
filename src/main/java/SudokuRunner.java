@@ -13,7 +13,8 @@ public class SudokuRunner {
         SudokuBoard board = new BoardCreator().createBoard();
         fileReader.readFile(board);
         board.tString();
-        Solver.solveCase(board);
+        Solver solver = new Solver();
+        solver.solveCase(board);
         System.out.println(",,,,,,,,,,,,,,,,,,,,,,,,,,,,");
         board.tString();
 

@@ -1,14 +1,22 @@
 package board;
 
 
-
 public class Solver {
-    public static void solveCase(SudokuBoard sudokuBoard){
-        while (!sudokuBoard.checkIsSolved()){
-        for (int i = 0; i < 27; i++) {
-            SudokuPart sudokuPart = sudokuBoard.getPartByName(i);
-//            sudokuPart.checkRepeatsAndDelete();
+    public void solveCase(SudokuBoard sudokuBoard) {
+        BoardOperator boardOperator = new BoardOperator();
+        SudokuBoard changedBoard = sudokuBoard;
+        while (!checkIsBoardSolved(sudokuBoard)) {
+                sudokuBoard = boardOperator.checkRepeatsAndDelete(sudokuBoard);
         }
-        }
+        System.out.println("");
+        sudokuBoard.tString();
+
     }
+
+    private boolean checkIsBoardSolved(SudokuBoard board) {
+        return board.getBoard().stream()
+                .flatMap(sudokuPart -> sudokuPart.getLineOfElements().stream())
+                .allMatch(SudokuElement::elementHasNumber);
+    }
+
 }

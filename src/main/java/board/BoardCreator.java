@@ -1,7 +1,5 @@
 package board;
 
-import fileReader.FileReader;
-
 import java.util.ArrayList;
 
 public class BoardCreator {
@@ -11,7 +9,7 @@ public class BoardCreator {
         for (int i = 0; i < 9; i++) {
             SudokuPart sudokuPart = new SudokuPart(i);
             for (int j = 0; j < 9; j++) {
-                SudokuElement sudokuElement = new SudokuElement(j);
+                SudokuElement sudokuElement = new SudokuElement();
                 sudokuPart.addElementToRow(sudokuElement);
             }
             sudokuBoard.addPartToBoard(sudokuPart);
