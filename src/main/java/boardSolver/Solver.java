@@ -1,16 +1,15 @@
-package board;
+package boardSolver;
 
+
+import board.SudokuBoard;
+import board.SudokuElement;
 
 public class Solver {
     public void solveCase(SudokuBoard sudokuBoard) {
         BoardOperator boardOperator = new BoardOperator();
-        SudokuBoard changedBoard = sudokuBoard;
         while (!checkIsBoardSolved(sudokuBoard)) {
-                sudokuBoard = boardOperator.checkRepeatsAndDelete(sudokuBoard);
+            sudokuBoard = boardOperator.checkRepeatsAndDelete(sudokuBoard);
         }
-        System.out.println("");
-        sudokuBoard.tString();
-
     }
 
     private boolean checkIsBoardSolved(SudokuBoard board) {

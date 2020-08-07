@@ -1,11 +1,16 @@
-package board;
+package boardSolver;
+
+import board.SudokuBoard;
+import board.SudokuElement;
+import board.SudokuPart;
 
 import java.util.ArrayList;
 
 public class BoardCreator {
     SudokuBoard sudokuBoard;
+
     public SudokuBoard createBoard() {
-         sudokuBoard = new SudokuBoard();
+        sudokuBoard = new SudokuBoard();
         for (int i = 0; i < 9; i++) {
             SudokuPart sudokuPart = new SudokuPart(i);
             for (int j = 0; j < 9; j++) {
@@ -51,7 +56,7 @@ public class BoardCreator {
 
     private void divideRowsToSquares(SudokuPart row, ArrayList<SudokuPart> squares) {
         if (row.getName() < 3) {
-            elementsAddToSquares(row,squares.get(0), squares.get(1), squares.get(2));
+            elementsAddToSquares(row, squares.get(0), squares.get(1), squares.get(2));
         } else if (row.getName() < 6) {
             elementsAddToSquares(row, squares.get(3), squares.get(4), squares.get(5));
         } else {
@@ -59,7 +64,7 @@ public class BoardCreator {
         }
     }
 
-    private void elementsAddToSquares(SudokuPart sudokuPart,SudokuPart square1,SudokuPart square2,SudokuPart square3){
+    private void elementsAddToSquares(SudokuPart sudokuPart, SudokuPart square1, SudokuPart square2, SudokuPart square3) {
         for (int j = 0; j < 3; j++) {
             square1.addElementToRow(sudokuPart.getLineOfElements().get(j));
             square2.addElementToRow(sudokuPart.getLineOfElements().get(j + 3));

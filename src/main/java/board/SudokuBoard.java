@@ -23,7 +23,7 @@ public class SudokuBoard {
 
 
 
-    public void tString() {
+    public void displayBoard() {
         for (int i = 0; i < 9; i++) {
             System.out.println(board.get(i));
         }

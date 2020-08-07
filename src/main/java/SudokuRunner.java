@@ -1,5 +1,5 @@
-import board.BoardCreator;
-import board.Solver;
+import boardSolver.BoardCreator;
+import boardSolver.Solver;
 import board.SudokuBoard;
 import fileReader.FileReader;
 
@@ -12,11 +12,11 @@ public class SudokuRunner {
         FileReader fileReader = new FileReader();
         SudokuBoard board = new BoardCreator().createBoard();
         fileReader.readFile(board);
-        board.tString();
+        board.displayBoard();
         Solver solver = new Solver();
         solver.solveCase(board);
         System.out.println(",,,,,,,,,,,,,,,,,,,,,,,,,,,,");
-        board.tString();
+        board.displayBoard();
 
         }
     }

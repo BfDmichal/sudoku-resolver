@@ -8,8 +8,7 @@ public class SudokuElement {
     private ArrayList<Integer> possibleValues;
 
     public SudokuElement() {
-        this.possibleValues = new ArrayList<>();
-        basicPossibleValues();
+        this.possibleValues = basicPossibleValues();
     }
 
     public int getValue() {
@@ -28,12 +27,18 @@ public class SudokuElement {
         return getValue() != EMPTY;
     }
 
-    private void basicPossibleValues() {
-        if (!elementHasNumber()) {
+    public boolean elementHasNotNumber() {
+        return getValue() == EMPTY;
+    }
+
+    private ArrayList<Integer> basicPossibleValues() {
+        ArrayList<Integer> listWithPossibleValues = new ArrayList<>();
+        if (elementHasNotNumber()) {
             for (int i = 1; i < 10; i++) {
-                possibleValues.add(i);
+                listWithPossibleValues.add(i);
             }
         }
+        return listWithPossibleValues;
     }
 
     public void setOnlyPossibleValue() {
